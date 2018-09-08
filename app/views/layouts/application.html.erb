@@ -4,15 +4,20 @@
     <title>Arte Barato</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= render "header" %>
+    <%= render "nav" %>
 
-    <%= yield %>
+    <main>
+      <div class="flex one two-500 three-1000">
+        <%= yield %>
+      </div>
+    </main>
 
     <%= render "footer" %>
   </body>

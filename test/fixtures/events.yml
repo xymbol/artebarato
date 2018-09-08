@@ -1,0 +1,17 @@
+cachitasnow:
+  tweet_id: 1038191651414519811
+  tweet_created_at: 2018-09-07 22:25:00
+  tweet_text: |
+    [MÚSICA] Este sábado 8 de septiembre se presenta @cachitasnow entre otros
+    artistas en @casaBrandon. El evento comienza 21hs. Entrada $50.
+  category: musica
+
+bergman:
+  tweet_id: MyString
+  tweet_created_at: 2018-09-07 17:40:00
+  tweet_text: |
+    [MUESTRA] Este viernes 7 de septiembre Ariela Bergman inaugura "Las fallas",
+    una muestra audiovisual sobre sus inseguridades. Cuenta con canciones,
+    poesías y esculturas. De 20 a 23 horas en @cc_matienzo. La entrada es libre
+    y gratuita.
+  category: muestra

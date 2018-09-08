@@ -32,6 +32,10 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for
+# Active Record.
+gem 'friendly_id', '~> 5.2', '>= 5.2.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -52,6 +56,11 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  # Guard is a command line tool to easily handle events on file system
+  # modifications.
+  gem 'guard', '~> 2.14', '>= 2.14.2'
+  gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
+  gem 'terminal-notifier-guard', '~> 1.7'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

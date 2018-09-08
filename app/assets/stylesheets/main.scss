@@ -7,6 +7,10 @@ main {
 
 nav {
   background-color: rgb(208, 114, 236);
+
+  .show ~ .menu > * {
+    transition: none !important;
+  }
 }
 
 footer {

@@ -15,7 +15,7 @@ class EventsUpdater
 
   def call
     client.user_timeline(USER).each do |tweet|
-      next if Event.exists?(tweet_id: tweet.id)
+      next if tweet.in_reply_to_status_id || Event.exists?(tweet_id: tweet.id)
       begin
         Event.create! \
           category: match_category(tweet.text),

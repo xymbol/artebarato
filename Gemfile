@@ -35,10 +35,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for
 # Active Record.
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
+# A Ruby interface to the Twitter API.
+gem 'twitter', '~> 6.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Autoload dotenv in Rails.
+  gem 'dotenv-rails', '~> 2.5'
 end
 
 group :development do

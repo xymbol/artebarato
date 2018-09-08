@@ -3,9 +3,7 @@
 class Event < ApplicationRecord
   belongs_to :category
 
-  scope :ordered, -> { order tweet_created_at: :desc }
+  scope :ordered, -> { order tweet_id: :desc }
 
-  validates :tweet_created_at, presence: true
   validates :tweet_id, uniqueness: true
-  validates :tweet_text, presence: true
 end

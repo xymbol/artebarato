@@ -57,8 +57,8 @@ class EventsUpdater
 
   def parse_name(text)
     case text
-    when /\A\[(\w+)\] / then Regexp.last_match(1).titleize
-    when /\A\#(\w+) / then Regexp.last_match(1).titleize
+    when /\A\[([[:alpha:]]+)\]/ then Regexp.last_match(1).titleize
+    when /\A\#([[:alpha:]]+)/ then Regexp.last_match(1).titleize
     end
   end
 

@@ -3,8 +3,8 @@
 class EventsUpdater
   USER = 'ArteBArato_'
 
-  def self.update
-    new.call
+  class << self
+    delegate :update, to: :new
   end
 
   attr_reader :client
@@ -14,21 +14,16 @@ class EventsUpdater
   end
 
   def call
-    client.user_timeline(USER).each do |tweet|
-      next if tweet.in_reply_to_status_id || Event.exists?(tweet_id: tweet.id)
-      begin
-        Event.create! \
-          category: match_category(tweet.text),
-          tweet_created_at: tweet.created_at,
-          tweet_id: tweet.id,
-          tweet_text: extended_text(tweet)
-      rescue ActiveRecord::RecordInvalid
-        puts "Failed to create event: #{tweet}"
-      end
+    user_timeline(USER).each do |tweet|
+      next if reply_tweet? tweet
+      update_event_with tweet
     end
   end
+  alias update call
 
   private
+
+  delegate :status, :user_timeline, to: :client
 
   def build_client
     Twitter::REST::Client.new do |config|
@@ -39,8 +34,12 @@ class EventsUpdater
     end
   end
 
+  def extended_status(tweet_id)
+    status tweet_id, tweet_mode: 'extended'
+  end
+
   def extended_text(tweet)
-    if (status = status tweet.id)
+    if (status = extended_status tweet.id)
       if status.truncated? && status.attrs[:extended_tweet]
         status.attrs[:extended_tweet][:full_text]
       else
@@ -62,7 +61,17 @@ class EventsUpdater
     end
   end
 
-  def status(tweet_id)
-    client.status tweet_id, tweet_mode: 'extended'
+  def reply_tweet?(tweet)
+    tweet.in_reply_to_status_id.present?
+  end
+
+  def update_event_with(tweet)
+    event = Event.find_or_initialize_by tweet_id: tweet.id
+    event.update! \
+      category: match_category(tweet.text),
+      tweet_created_at: tweet.created_at,
+      tweet_text: extended_text(tweet)
+  rescue ActiveRecord::RecordInvalid
+    puts "Failed to create event: #{tweet}"
   end
 end

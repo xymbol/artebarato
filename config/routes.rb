@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :categories, path: "categorias", only: [] do
-    resources :events, path: "eventos", only: :index
+  resources :categories, path: "", only: [] do
+    resources :events, path: "", only: :index
   end
 
   root to: 'events#index'

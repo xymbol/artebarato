@@ -37,6 +37,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'friendly_id', '~> 5.2', '>= 5.2.4'
 # A Ruby interface to the Twitter API.
 gem 'twitter', '~> 6.2'
+# An extraction of the `auto_link` method from rails.
+gem 'rails_autolink', '~> 1.1', '>= 1.1.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -8,5 +8,9 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  # Asserts that two arrays have the same elements disregarding the ordering
+  # between the actual and expected array.
+  def assert_match_array(expected, actual, message = nil)
+    assert_equal expected.sort, actual.sort, message
+  end
 end

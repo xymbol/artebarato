@@ -14,16 +14,13 @@ class EventsUpdater
   end
 
   def call
-    user_timeline(USER).each do |tweet|
-      next if reply_tweet? tweet
+    user_timeline.each do |tweet|
       update_event_with tweet
     end
   end
   alias update call
 
   private
-
-  delegate :status, :user_timeline, to: :client
 
   def build_client
     Twitter::REST::Client.new do |config|
@@ -34,17 +31,11 @@ class EventsUpdater
     end
   end
 
-  def extended_status(tweet_id)
-    status tweet_id, tweet_mode: 'extended'
-  end
-
   def extended_text(tweet)
-    if (status = extended_status tweet.id)
-      if status.truncated? && status.attrs[:extended_tweet]
-        status.attrs[:extended_tweet][:full_text]
-      else
-        status.attrs[:text] || status.attrs[:full_text]
-      end
+    if tweet.truncated? && tweet.attrs[:extended_tweet]
+      tweet.attrs[:extended_tweet][:full_text]
+    else
+      tweet.attrs[:text] || tweet.attrs[:full_text]
     end
   end
 
@@ -61,17 +52,22 @@ class EventsUpdater
     end
   end
 
-  def reply_tweet?(tweet)
-    tweet.in_reply_to_status_id.present?
-  end
-
   def update_event_with(tweet)
+    text = extended_text tweet
     event = Event.find_or_initialize_by tweet_id: tweet.id
     event.update! \
-      category: match_category(tweet.text),
+      category: match_category(text),
       tweet_created_at: tweet.created_at,
-      tweet_text: extended_text(tweet)
+      tweet_text: text
   rescue ActiveRecord::RecordInvalid
     puts "Failed to create event: #{tweet}"
+  end
+
+  def user_timeline
+    client.user_timeline USER,
+                         exclude_replies: true,
+                         include_rts: false,
+                         trim_user: true,
+                         tweet_mode: 'extended'
   end
 end

@@ -1,0 +1,61 @@
+[
+  {
+    "created_at": "Mon Sep 10 18:33:25 +0000 2018",
+    "id": 1039220313542811648,
+    "id_str": "1039220313542811648",
+    "text": "#Cine \"El camino de Santiago\", de Tristán Bauer, se proyecta martes y miércoles de septiembre 19:30hs en el Centro Cultural de la Cooperación (Av. Corrientes 1543)Entrada general $80.\nCompartimos el trailer: \nhttps://t.co/Bzt83AsYIO",
+    "truncated": true,
+    "extended_tweet": {
+      "full_text": "#Cine \"El camino de Santiago\", de Tristán Bauer, se proyecta martes y miércoles de septiembre 19:30hs en el Centro Cultural de la Cooperación (Av. Corrientes 1543)Entrada general $80.\nCompartimos el trailer: \nhttps://t.co/Bzt83AsYIO"
+    },
+    "display_text_range": [
+      0,
+      232
+    ],
+    "entities": {
+      "hashtags": [
+        {
+          "text": "Cine",
+          "indices": [
+            0,
+            5
+          ]
+        }
+      ],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [
+        {
+          "url": "https://t.co/Bzt83AsYIO",
+          "expanded_url": "https://www.youtube.com/watch?v=w5VqwHxYrqs",
+          "display_url": "youtube.com/watch?v=w5VqwH…",
+          "indices": [
+            209,
+            232
+          ]
+        }
+      ]
+    },
+    "source": "<a href=\"http://twitter.com\" rel=\"nofollow\">Twitter Web Client</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 1037922335800606720,
+      "id_str": "1037922335800606720"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 1,
+    "favorite_count": 3,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "es"
+  }
+]

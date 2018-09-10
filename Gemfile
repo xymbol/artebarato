@@ -70,6 +70,8 @@ group :test do
   # Code coverage for Ruby 1.9+ with a powerful configuration library and
   # automatic merging of coverage across test suites.
   gem 'simplecov', '~> 0.16.1'
+  # Allows stubbing HTTP requests and setting expectations on HTTP requests.
+  gem 'webmock', '~> 3.4', '>= 3.4.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

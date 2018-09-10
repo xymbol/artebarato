@@ -67,6 +67,9 @@ group :test do
   gem 'guard', '~> 2.14', '>= 2.14.2'
   gem 'guard-minitest', '~> 2.4', '>= 2.4.6'
   gem 'terminal-notifier-guard', '~> 1.7'
+  # Code coverage for Ruby 1.9+ with a powerful configuration library and
+  # automatic merging of coverage across test suites.
+  gem 'simplecov', '~> 0.16.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

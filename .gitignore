@@ -17,12 +17,6 @@
 /storage/*
 !/storage/.keep
 
-/node_modules
-/yarn-error.log
-
-/public/assets
-.byebug_history
-
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /public/packs
@@ -32,4 +26,10 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore other files.
+.byebug_history
 .env
+/coverage
+/node_modules
+/public/assets
+/yarn-error.log
+

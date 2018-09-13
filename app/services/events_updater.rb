@@ -58,6 +58,7 @@ class EventsUpdater
     event.update! \
       category: match_category(text),
       tweet_created_at: tweet.created_at,
+      tweet_source: tweet.to_json,
       tweet_text: text
   rescue ActiveRecord::RecordInvalid
     puts "Failed to create event: #{tweet}"

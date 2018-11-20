@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class EventsController < ApplicationController
+  MAX_EVENTS = 60
+
   def index
-    @events = find_events.ordered
+    @events = find_events.ordered.limit MAX_EVENTS
   end
 
   private
